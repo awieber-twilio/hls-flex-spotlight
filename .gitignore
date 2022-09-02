@@ -1,0 +1,15 @@
+.env.localhost
+node_modules
+open-emr/.env.localhost
+flex-provider/.env.localhost
+telehealth/.env.localhost
+flex-provider/plugin/src/components/CustomPanel2/Panes/PreventativeCarePane
+flex-provider/.twiliodeployinfo
+open-emr/.twiliodeployinfo
+telehealth/.twiliodeployinfo
+.twiliodeployinfo
+package-lock.json
+flex-provider/package-lock.json
+open-emr/package-lock.json
+telehealth/package-lock.json
+telehealth/app/package-lock.json

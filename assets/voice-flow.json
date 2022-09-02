@@ -1,0 +1,181 @@
+{
+    "description": "IVR for creating a Flex voice task",
+    "states": [
+      {
+        "name": "Trigger",
+        "type": "trigger",
+        "transitions": [
+          {
+            "event": "incomingMessage"
+          },
+          {
+            "next": "gather_1",
+            "event": "incomingCall"
+          },
+          {
+            "event": "incomingConversationMessage"
+          },
+          {
+            "event": "incomingRequest"
+          },
+          {
+            "event": "incomingParent"
+          }
+        ],
+        "properties": {
+          "offset": {
+            "x": 0,
+            "y": -10
+          }
+        }
+      },
+      {
+        "name": "SendToSchedulers",
+        "type": "send-to-flex",
+        "transitions": [
+          {
+            "event": "callComplete"
+          },
+          {
+            "event": "failedToEnqueue"
+          },
+          {
+            "event": "callFailure"
+          }
+        ],
+        "properties": {
+          "offset": {
+            "x": -130,
+            "y": 770
+          },
+          "workflow": "WWXXXXXXXXXXXXXXXXXXXXX",
+          "channel": "TCXXXXXXXXXXXXXXXXXXXXXXXX",
+          "attributes": "{ \"type\": \"inbound\", \"name\": \"{{trigger.call.From}}\" }"
+        }
+      },
+      {
+        "name": "gather_1",
+        "type": "gather-input-on-call",
+        "transitions": [
+          {
+            "next": "split_2",
+            "event": "keypress"
+          },
+          {
+            "next": "split_1",
+            "event": "speech"
+          },
+          {
+            "event": "timeout"
+          }
+        ],
+        "properties": {
+          "voice": "woman",
+          "number_of_digits": 1,
+          "speech_timeout": "auto",
+          "offset": {
+            "x": 150,
+            "y": 170
+          },
+          "loop": 1,
+          "finish_on_key": "#",
+          "say": "Hello, thank you for calling Owl Health. Do you have an appointment at this time? You can say Yes or enter 1 for Yes. Or say No or enter 2 for No.",
+          "language": "en-US",
+          "stop_gather": false,
+          "gather_language": "en-US",
+          "profanity_filter": "true",
+          "timeout": 5
+        }
+      },
+      {
+        "name": "split_1",
+        "type": "split-based-on",
+        "transitions": [
+          {
+            "next": "SendToSchedulers",
+            "event": "noMatch"
+          },
+          {
+            "next": "sendToEducators",
+            "event": "match",
+            "conditions": [
+              {
+                "friendly_name": "If value contains yes",
+                "arguments": [
+                  "{{widgets.gather_1.SpeechResult}}"
+                ],
+                "type": "contains",
+                "value": "yes"
+              }
+            ]
+          }
+        ],
+        "properties": {
+          "input": "{{widgets.gather_1.SpeechResult}}",
+          "offset": {
+            "x": 310,
+            "y": 420
+          }
+        }
+      },
+      {
+        "name": "split_2",
+        "type": "split-based-on",
+        "transitions": [
+          {
+            "next": "SendToSchedulers",
+            "event": "noMatch"
+          },
+          {
+            "next": "sendToEducators",
+            "event": "match",
+            "conditions": [
+              {
+                "friendly_name": "If value equal_to 1",
+                "arguments": [
+                  "{{widgets.gather_1.Digits}}"
+                ],
+                "type": "equal_to",
+                "value": "1"
+              }
+            ]
+          }
+        ],
+        "properties": {
+          "input": "{{widgets.gather_1.Digits}}",
+          "offset": {
+            "x": -30,
+            "y": 420
+          }
+        }
+      },
+      {
+        "name": "sendToEducators",
+        "type": "send-to-flex",
+        "transitions": [
+          {
+            "event": "callComplete"
+          },
+          {
+            "event": "failedToEnqueue"
+          },
+          {
+            "event": "callFailure"
+          }
+        ],
+        "properties": {
+          "offset": {
+            "x": 350,
+            "y": 770
+          },
+          "workflow": "WWXXXXXXXXXXXXXXXXXXXXX",
+          "channel": "TCXXXXXXXXXXXXXXXXXXXXXXXX",
+          "attributes": "{ \"type\": \"inbound\", \"name\": \"{{trigger.call.From}}\" }"
+        }
+      }
+    ],
+    "initial_state": "Trigger",
+    "flags": {
+      "allow_concurrent_calls": true
+    }
+  }

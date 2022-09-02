@@ -1,0 +1,26 @@
+{
+  "name": "hls-flex-provider",
+  "version": "3.0.0",
+  "private": true,
+  "dependencies": {
+    "twilio": "3.75.1",
+    "@twilio-labs/serverless-api": "5.4.1",
+    "@twilio/runtime-handler": "1.2.3",
+    "twilio-flex-token-validator": "1.5.6",
+    "configure-env": "2.0.0-1",
+    "jsonwebtoken": "8.5.1",
+    "awesome-phonenumber": "3.0.2",
+    "node-fetch": "2.6.7"
+  },
+  "devDependencies": {
+    "twilio-run": "3.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "twilio-run",
+    "deploy": "twilio-run deploy"
+  },
+  "engines": {
+    "node": "14"
+  }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Twilio Flex for Provider Solution Blueprint</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/milligram/dist/milligram.min.css">
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./authentication.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Twilio Flex for Provider Solution Blueprint</h1>
+    <div id="hipaa-disclaimer" style="margin-bottom: 20px;">
+      Note that this application is designed for prototyping purposes only and you should<br/>
+      <a href="https://ahoy.twilio.com/outreach-sms" target="_blank">consult with a Twilio Expert</a>
+      before publicly offering this service in a production context.
+    </div>
+    <p>
+      The Frontline-Pharma app packages together the core components of a deployable prototype for Frontline for Pharmaceutical company SalesReps.
+      This app aims to support Healthcare and Life Sciences organizations that are interested in building
+      their own outreach solution to understand what is possible using Twilio,
+      and to accelerate the path to success by providing core building blocks and workflows for a working prototype.
+    </p>
+  </header>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="application/javascript" src="/authentication-controller.js"></script>
+  <script type="application/javascript" src="/controller.js"></script>
+  <div class="authentication">
+    <div id="password-form">
+      <p id="login-error" style="color:red"></p>
+      <form>
+        <div>
+          <label for="password-input">Password:
+            <input id="password-input" type="password" name="password" style="width: 400px">
+          </label>
+        </div>
+        <button id="btn-authenticate" class="button" onclick="login(event)">Authenticate</button>
+      </form>
+    </div>
+    <div id="mfa-form" style="display: none;">
+      <p>
+        Your password was accepted. For additional security, please enter the security code we sent to your phone.
+      </p>
+      <p id="mfa-error" style="color:red"></p>
+      <form>
+        <div>
+          <label for="mfa-input">
+            <input id="mfa-input" type="text" name="mfacode" style="width: 400px">
+          </label>
+        </div>
+        <button class="button" onclick="mfa(event)">Verify Security Code</button>
+      </form>
+    </div>
+    <p id="auth-successful"  style="display:none">Authenticated successfully</p>
+  </div>
+  <main style="display: none">
+    <section>
+      <h4>Header4</h4>
+      Put any administrative controls here
+      <br/>
+      <br/>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      Made with 💖 by your friends at
+      <a href="https://www.twilio.com">Twilio</a>
+    </p>
+  </footer>
+</body>
+
+<script>
+  initialize();
+</script>
+
+</html>
