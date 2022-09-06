@@ -11,18 +11,18 @@ Twilio Spotlights are led by a Twilio Solutions Engineer for additional resource
 
 ## Contents
 * [Prerequisites](https://github.com/awieber-twilio/hls-spotlight#prerequisites)
-* [Module 1: Creating a Twilio Flex Account](https://github.com/awieber-twilio/hls-spotlight#Module-1-creating-a-twilio-flex-account)
-* [Exploring your Flex Account](https://github.com/awieber-twilio/hls-spotlight#exploring-your-flex-account)
+* [Module 1: Creating a Twilio Flex Account](https://github.com/awieber-twilio/hls-flex-spotlight#Module-1-creating-a-twilio-flex-account)
+* [Exploring your Flex Account](https://github.com/awieber-twilio/hls-flex-spotlight#exploring-your-flex-account)
 <!-- * [Module 2: Installing OpenEMR](https://github.com/awieber-twilio/hls-spotlight#Module-2-install-openemr)
 * [Module 3: Install Ngrok](https://github.com/awieber-twilio/hls-spotlight#Module-3-install-ngrok) -->
-* [Module 2: Deploy Telehealth Application](https://github.com/awieber-twilio/hls-spotlight#Module-4-deploy-telehealth-application-optional)
-* [Module 3: Install Flex Plugin](https://github.com/awieber-twilio/hls-spotlight#Module-5-install-flex-plugin)
-* [Module 4: Update Skills](https://github.com/awieber-twilio/hls-spotlight#Module-6-update-skills)
-* [Exploring the Flex Plugin](https://github.com/awieber-twilio/hls-spotlight#exploring-the-plugin)
-* [Module 5: Modifying the Plugin](https://github.com/awieber-twilio/hls-spotlight#Module-7-modifying-the-plugin)
-* [Exploring Telehealth](https://github.com/awieber-twilio/hls-spotlight#exploring-telehealth)
-* [Module 6: Add an SMS Chat Bot](https://github.com/awieber-twilio/hls-spotlight#Module-8-add-chat-bot-optional)
-* [Module 7: Add a Voice IVR](https://github.com/awieber-twilio/hls-spotlight#Module-9-create-a-voice-ivr-optional)
+* [Module 2: Deploy Telehealth Application](https://github.com/awieber-twilio/hls-flex-spotlight#Module-4-deploy-telehealth-application-optional)
+* [Module 3: Install Flex Plugin](https://github.com/awieber-twilio/hls-flex-spotlight#Module-5-install-flex-plugin)
+* [Module 4: Update Skills](https://github.com/awieber-twilio/hls-flex-spotlight#Module-6-update-skills)
+* [Exploring the Flex Plugin](https://github.com/awieber-twilio/hls-flex-spotlight#exploring-the-plugin)
+* [Module 5: Modifying the Plugin](https://github.com/awieber-twilio/hls-flex-spotlight#Module-7-modifying-the-plugin)
+* [Exploring Telehealth](https://github.com/awieber-twilio/hls-flex-spotlight#exploring-telehealth)
+* [Module 6: Add an SMS Chat Bot](https://github.com/awieber-twilio/hls-flex-spotlight#Module-8-add-chat-bot-optional)
+* [Module 7: Add a Voice IVR](https://github.com/awieber-twilio/hls-flex-spotlight#Module-9-create-a-voice-ivr-optional)
 
 ## Prerequisites 
 You can use your local machine's CLI or a VM for the following steps. This workshop has been tested on MacOS. 
@@ -37,7 +37,16 @@ docker system prune --force
 2. If you do not already have a GitHub account, create one. Log in to your GitHub account in your local terminal. You may need to create a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 3. A text editor such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime](https://www.sublimetext.com/).
 4. During this workshop, we’ll use ports 8080 and 3000, so be prepared to have them available.
-5. The [Flex Plugins CLI](https://www.twilio.com/docs/flex/developer/plugins/cli/install) requires a Node version between 10.12.0 to 14. We will use the Flex Plugins CLI starting in Module 5.
+5. The [Flex Plugins CLI](https://www.twilio.com/docs/flex/developer/plugins/cli/install) requires a Node version between 10.12.0 to 14. We will use the Flex Plugins CLI starting in Module 5. Either install a Node version within this range or change your existing Node version using a tool such as [nvm](https://github.com/nvm-sh/nvm).
+6. Next, install the Flex Plugins CLI by running:
+```
+twilio plugins:install @twilio-labs/plugin-flex
+``` 
+6. In your terminal, install [jq](https://stedolan.github.io/jq/download/) if you don't already have it installed. You'll need this package for the installer to run properly. If you're using MacOS, the command to install jq is 
+```
+brew install jq 
+```
+
 
 ## Module 1: Creating a Twilio Flex Account
 Twilio requires you to create a new Flex-specific account. Here's how to set this up. 
@@ -46,6 +55,7 @@ Twilio requires you to create a new Flex-specific account. Here's how to set thi
 3. Enter the desired account name. We recommend using a name you'll recognize, such as **hls-flex-provider**.
 4. Verify an email address and phone number to continue. 
 5. Please wait while your new hosted Flex instance is being built. When ready, you will automatically be loaded into Flex.
+
 
 ### Exploring your Flex account 
 1. When account creation is complete, log in by selecting **Log in with Twilio**.
@@ -130,63 +140,68 @@ ngrok http --subdomain=<custom domain> 80
 ## Module 2: Deploy Telehealth Application [OPTIONAL]
 Educators at Owl Health will be interfacing with patients directly regarding their health needs. Seeing an affected area, such as a rash or a mole, allows an educator to more accurately diagnose a potential problem. So our next step is deploying a [Twilio Programmable Video](https://www.twilio.com/docs/video) application that we'll add to our contact center. Twilio Video uses WebRTC to add real-time video communications to any application. If your organization already has a deployed video solution they are happy with, you may choose to skip this module.
 
-1. In your command line move to the directory containing the code for Programmable Video with 
+1. Open your terminal and clone this repo: 
 ```
-cd ../telehealth
+git clone https://github.com/awieber-twilio/hls-flex-spotlight.git
 ```
-Install necessary packages by running
+
+2. In your command line, move to the directory containing the code for Programmable Video with 
+```
+cd telehealth
+```
+3. Install necessary packages by running
 ```
 npm install
 ``` 
-2. There are a few more packages that need to be installed that are specific to the React application that hosts video calling functionality. Move into that directory with 
+4. There are a few more packages that need to be installed that are specific to the React application that hosts video calling functionality. Move into that directory with 
 ```
 cd app
 ``` 
-Install the required packages with 
+5. Install the required packages with 
 ```
 npm install
 ``` 
-3. Build the React app with 
+6. Build the React app with 
 ```
 npm run build
 ```
-4. The following command will help us publish and export our application to a Twilio Service. Run 
+7. The following command will help us publish and export our application to a Twilio Service. Run 
 ```
 npm run export
 ```
-5. Next copy the assets created by the above command into a folder that matches the structure for Twilio Services by running 
+8. Next copy the assets created by the above command into a folder that matches the structure for Twilio Services by running 
 ```
 cp -r out/* ../assets
 ```
-6. Open `telehealth/.env` in your IDE. Scroll down to lines 88 and 94 and update the values for `ACCOUNT_SID` and `AUTH_TOKEN`.
-7. Move back into the `telehealth` folder by running 
+9. Open `telehealth/.env` in your IDE. Scroll down to lines 88 and 94 and update the values for `ACCOUNT_SID` and `AUTH_TOKEN`.
+10. Move back into the `telehealth` folder by running 
 ```
 cd ../
 ```
-8. Run the following command, replacing the default values with your own, to authenticate in the terminal:
+11. Run the following command, replacing the default values with your own, to authenticate in the terminal:
 ```
 export TWILIO_ACCOUNT_SID=ACXXXXXXXXXXXXXXXXXXXXXXXX
 export TWILIO_AUTH_TOKEN=XXXXXXXXXXXXXXXXXXXXXX
 ```
-9. Deploy the necessary functions and assets by running 
+12. Deploy the necessary functions and assets by running 
 ```
 twilio serverless:deploy --env=.env
 ```
-10. Launch the installer application locally by running 
+13. Launch the installer application locally by running 
 ```
 twilio serverless:start
 ```
-11. Open http://localhost:3000/installer/index.html in your browser. Values from your account should auto-populate. If they do not autopopulate or they are incorrect, check your account credentials in `.env`. 
+14. Open http://localhost:3000/installer/index.html in your browser. Values from your account should auto-populate. If they do not autopopulate or they are incorrect, check your account credentials in `.env`. 
 
-12. Fill in a password for "Administrator Password". Fill in your mobile number for "Administrator Phone" in **E.164 format**, for example +155555555555, and your email address for "Administrator Email". Select "Deploy Telehealth Application". This triggers a script to run that creates other essential services for the telehealth application automatically. You can find this script at `telehealth/functions/installer/deploy.js`.
+15. Fill in a password for "Administrator Password". Fill in your mobile number for "Administrator Phone" in **E.164 format**, for example +155555555555, and your email address for "Administrator Email". Select "Deploy Telehealth Application". This triggers a script to run that creates other essential services for the telehealth application automatically. You can find this script at `telehealth/functions/installer/deploy.js`.
 
-13. Select **Open Application** on the installer page. Authenticate using the Administrator Password you just created. 
+16. Select **Open Application** on the installer page. Authenticate using the Administrator Password you just created. 
 
-14. You'll receive a two-factor authentication code to your phone. Type that code into the next page. This code is sent by [Twilio Verify](https://www.twilio.com/docs/verify/api). The Twilio Verify API makes it simple to add user verification over SMS, Voice, WhatsApp, and other channels. 
+17. You'll receive a two-factor authentication code to your phone. Type that code into the next page. This code is sent by [Twilio Verify](https://www.twilio.com/docs/verify/api). The Twilio Verify API makes it simple to add user verification over SMS, Voice, WhatsApp, and other channels. 
 
-15. You'll now see the complete Telehealth Landing Page. A portion of this landing page will be embedded into your Flex Agent Dashboard, so Educators can easily launch video calls with patients. Feel free to play around with this page before we embed it into the Flex Agent Dashboard in the next module. **Make note of the URL of the Telehealth Landing Page, as we'll be using it in Module 5.**
+18. You'll now see the complete Telehealth Landing Page. A portion of this landing page will be embedded into your Flex Agent Dashboard, so Educators can easily launch video calls with patients. Feel free to play around with this page before we embed it into the Flex Agent Dashboard in the next module. **Make note of the URL of the Telehealth Landing Page, as we'll be using it in Module 5.**
 
-16. Cancel the running installer by pressing Ctrl+C in the terminal. You no longer need the installer. 
+19. Cancel the running installer by pressing Ctrl+C in the terminal. You no longer need the installer. 
 <!-- 5. The next Module requires creating an [API Key](https://www.twilio.com/docs/iam/keys/api-key). API Keys allow for secure authentication to Twilio resources. Since API Keys can be independently revoked, you have complete control of the lifecycle of your API credentials. You can create an API Key in the [Console](https://www.twilio.com/console/runtime/api-keys) or programmatically. 
 6. Create your API Key and save the SID and secret in a secure location you can easily access. Either follow along in the console link above or use the CLI to run `twilio api:core:keys:create --friendly-name "telehealth" -o=json`. The console and this command will both provide an SID and Secret that you will need for the next Module. 
 7. Open `.env` within the `app` directory. Update the environment variables for `TWILIO_API_KEY_SECRET` and `TWILIO_API_KEY_SID` on lines 50 and 56, using the SID and Secret that were given after you created the API key. 
@@ -244,11 +259,6 @@ A [Twilio Service](https://www.twilio.com/docs/runtime/functions/create-service)
 
 The next steps requires some specific configurations for your Flex instance. We've created a deployment script to automate these configurations and we'll explore them shortly. You can find the deployment script we will use at `flex-provider/functions/installer/deploy.js`. 
 
-6. In your terminal, install [jq](https://stedolan.github.io/jq/download/) if you don't already have it installed. You'll need this package for the installer to run properly.
-7. If you haven't already, install the Flex Plugins CLI by running 
-```
-twilio plugins:install @twilio-labs/plugin-flex
-``` 
 
 8. Create a new file called `.env.localhost` in the `flex-provider` folder. Copy the contents of `flex-provider/.env` into `flex-provider/.env.localhost`
 9. Add 2 lines to the top of your `.env.localhost`:
