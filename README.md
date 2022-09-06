@@ -26,7 +26,7 @@ Twilio Spotlights are led by a Twilio Solutions Engineer for additional resource
 
 ## Prerequisites 
 You can use your local machine's CLI or a VM for the following steps. This workshop has been tested on MacOS. 
-1. Install the [Twilio CLI](https://www.twilio.com/docs/twilio-cli/quickstart)
+1. Install the [Twilio CLI](https://www.twilio.com/docs/twilio-cli/quickstart).
 <!-- 2. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 3. Launch Docker and wait for it to start.
 4. Go to Settings, then Resources. Increase the Docker Desktop memory to 6 GB or more
@@ -220,31 +220,31 @@ The Flex UI allows developers to build a custom user experience and behaviors fo
 ```
 cd ../flex-provider
 ``` 
-Install necessary packages by running 
+2. Install necessary packages by running 
 ```
 npm install
 ``` 
-2. Navigate to the plugin-specific folder by running 
+3. Navigate to the plugin-specific folder by running 
 ```
 cd plugin
 ``` 
-Install these necessary packages with 
+4. Install these necessary packages with 
 ```
 npm install
 ```
 <!-- 2. Next, create a [Twilio Profile](https://www.twilio.com/docs/twilio-cli/general-usage) to issue the following CLI commands using your Twilio credentials. Run `twilio login` in the terminal. Copy your Account SID and Auth Token into the terminal when prompted. Give the profile a shorthand name you'll remember, ex: hls-flex
 3. Use the above profile by running `twilio profiles:use <your-shorthand-name>`, ex `twilio profiles:use hls-flex` -->
-3. Next, authenticate using your Twilio credentials in the command line. You can find these values in the [Console](https://twilio.com/console). You will need your Twilio Account SID and Auth Token. **Be sure that you are getting the credentials for the Flex account you created**. 
-4. If you haven't already, run the following command, replacing the default values with your own, to authenticate in the terminal:
+5. Next, authenticate using your Twilio credentials in the command line. You can find these values in the [Console](https://twilio.com/console). You will need your Twilio Account SID and Auth Token. **Be sure that you are getting the credentials for the Flex account you created**. 
+6. If you haven't already, run the following command, replacing the default values with your own, to authenticate in the terminal:
 ```
 export TWILIO_ACCOUNT_SID=ACXXXXXXXXXXXXXXXXXXXXXXXX
 export TWILIO_AUTH_TOKEN=XXXXXXXXXXXXXXXXXXXXXX
 ```
-5. Next we'll use the [Twilio Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) to easily deploy functions and assets to Twilio's serverless environment. Move back into the flex-provider folder by running 
+7. Next we'll use the [Twilio Serverless Toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) to easily deploy functions and assets to Twilio's serverless environment. Move back into the flex-provider folder by running 
 ```
 cd ..
 ``` 
-Deploy helper functions and assets by running 
+8. Deploy helper functions and assets by running 
 ```
 twilio serverless:deploy --runtime node14 --override-existing-project
 ```
@@ -260,25 +260,25 @@ A [Twilio Service](https://www.twilio.com/docs/runtime/functions/create-service)
 The next steps requires some specific configurations for your Flex instance. We've created a deployment script to automate these configurations and we'll explore them shortly. You can find the deployment script we will use at `flex-provider/functions/installer/deploy.js`. 
 
 
-8. Create a new file called `.env.localhost` in the `flex-provider` folder. Copy the contents of `flex-provider/.env` into `flex-provider/.env.localhost`
-9. Add 2 lines to the top of your `.env.localhost`:
+9. Create a new file called `.env.localhost` in the `flex-provider` folder. Copy the contents of `flex-provider/.env` into `flex-provider/.env.localhost`
+10. Add 2 lines to the top of your `.env.localhost`:
 ```
 ACCOUNT_SID=ACXXXXXXXXXXXXXXXXXXXXXXXX
 AUTH_TOKEN=XXXXXXXXXXXXXXXXXXXXXX
 ``` 
-10. Scroll down to `TWILIO_PHONE_NUMBER` and add the Twilio Phone Number associated with your Flex instance in E.164 format, for example +155555555555.
-11. Scroll down to `OPENEMR_NGROK_HOSTNAME` and add the URL provided by your Twilio Solutions Engineer.
+11. Scroll down to `TWILIO_PHONE_NUMBER` and add the Twilio Phone Number associated with your Flex instance in E.164 format, for example +155555555555.
+12. Scroll down to `OPENEMR_NGROK_HOSTNAME` and add the URL provided by your Twilio Solutions Engineer.
 
 <!-- 11. In the console, go to TaskRouter -> Workspaces, and copy the SID under "Flex Task Assignment". Scroll down to `FLEX_WORKSPACE_SID=` and paste the Workspace SID.  -->
-12. Update the line for `TELEHEALTH_HOSTNAME=telehealth-xxxx-dev.twil.io`, replacing the example URL with your specific URL from Module 4: Deploy Telehealth Application. If you did not deploy the telehealth application, you can leave the link as is.
-13. In your terminal, double check that you're in the `flex-provider` directory. Launch the web application that will configure the necessary customizations by running 
+13. Update the line for `TELEHEALTH_HOSTNAME=telehealth-xxxx-dev.twil.io`, replacing the example URL with your specific URL from Module 4: Deploy Telehealth Application. If you did not deploy the telehealth application, you can leave the link as is.
+14. In your terminal, double check that you're in the `flex-provider` directory. Launch the web application that will configure the necessary customizations by running 
 ```
 twilio serverless:start --load-local-env --env=.env.localhost -l debug
 ``` 
 This command allows us to run our Twilio service locally. 
-14. Navigate to [http://localhost:3000/installer/index.html](http://localhost:3000/installer/index.html) in your browser. 
-15. Your account information should autopopulate. Click Deploy. This will take a few minutes, you can follow along in the terminal.
-16. After the deployment is complete, cancel the running installer by pressing Ctrl+C in the terminal. You no longer need the installer. 
+15. Navigate to [http://localhost:3000/installer/index.html](http://localhost:3000/installer/index.html) in your browser. 
+16. Your account information should autopopulate. Click Deploy. This will take a few minutes, you can follow along in the terminal.
+17. After the deployment is complete, cancel the running installer by pressing Ctrl+C in the terminal. You no longer need the installer. 
 
 <!-- <!-- ## Module 5: Deploy Plugin
 1. Open `flex-provider/plugin/.env` using your favorite IDE. Add a line for `REACT_APP_BACKEND_URL=` followed by the URL you found in the Module above. For example `REACT_APP_BACKEND_URL=hls-flex-provider-xxxx-dev.twil.io`
