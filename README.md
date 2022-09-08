@@ -140,6 +140,8 @@ ngrok http --subdomain=<custom domain> 80
 ## Module 2: Deploy Telehealth Application [OPTIONAL]
 Educators at Owl Health will be interfacing with patients directly regarding their health needs. Seeing an affected area, such as a rash or a mole, allows an educator to more accurately diagnose a potential problem. So our next step is deploying a [Twilio Programmable Video](https://www.twilio.com/docs/video) application that we'll add to our contact center. Twilio Video uses WebRTC to add real-time video communications to any application. If your organization already has a deployed video solution they are happy with, you may choose to skip this module.
 
+***Use Node version 14 for this Module**
+
 1. Open your terminal and clone this repo: 
 ```
 git clone https://github.com/awieber-twilio/hls-flex-spotlight.git
