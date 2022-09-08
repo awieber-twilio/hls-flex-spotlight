@@ -282,9 +282,9 @@ AUTH_TOKEN=XXXXXXXXXXXXXXXXXXXXXX
 twilio serverless:start --load-local-env --env=.env.localhost -l debug
 ``` 
 This command allows us to run our Twilio service locally.
- 
+
 15. Navigate to [http://localhost:3000/installer/index.html](http://localhost:3000/installer/index.html) in your browser. 
-16. Your account information should autopopulate. Click Deploy. This will take a few minutes, you can follow along in the terminal.
+16. Your account information should autopopulate. Click `Deploy`. This will take a few minutes, you can follow along in the terminal.
 17. After the deployment is complete, cancel the running installer by pressing Ctrl+C in the terminal. You no longer need the installer. 
 
 <!-- <!-- ## Module 5: Deploy Plugin
