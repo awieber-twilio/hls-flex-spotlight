@@ -37,7 +37,7 @@ docker system prune --force
 2. If you do not already have a GitHub account, create one. Log in to your GitHub account in your local terminal. You may need to create a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 3. A text editor such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime](https://www.sublimetext.com/).
 4. During this workshop, we’ll use ports 8080 and 3000, so be prepared to have them available.
-5. The [Flex Plugins CLI](https://www.twilio.com/docs/flex/developer/plugins/cli/install) requires a Node version between 10.12.0 to 14. We will use the Flex Plugins CLI starting in Module 5. Either install a Node version within this range or change your existing Node version using a tool such as [nvm](https://github.com/nvm-sh/nvm).
+5. The [Flex Plugins CLI](https://www.twilio.com/docs/flex/developer/plugins/cli/install) requires a Node version between 10.12.0 to 14. We will use the Flex Plugins CLI starting in Module 3. Either install a Node version within this range or change your existing Node version using a tool such as [nvm](https://github.com/nvm-sh/nvm).
 6. Next, install the Flex Plugins CLI by running:
 ```
 twilio plugins:install @twilio-labs/plugin-flex
