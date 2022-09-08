@@ -199,7 +199,7 @@ twilio serverless:start
 ```
 14. Open http://localhost:3000/installer/index.html in your browser. Values from your account should auto-populate. If they do not autopopulate or they are incorrect, check your account credentials in `.env`. 
 
-15. Fill in a password for "Administrator Password". Fill in your mobile number for "Administrator Phone" in **E.164 format**, for example +155555555555, and your email address for "Administrator Email". Select "Deploy Telehealth Application". This triggers a script to run that creates other essential services for the telehealth application automatically. You can find this script at `telehealth/functions/installer/deploy.js`.
+15. Fill in a password for "Administrator Password". Fill in your mobile number for "Administrator Phone" in **E.164 format**, for example +155555555555, and your email address for "Administrator Email". Select "Re-Deploy Telehealth Application". This triggers a script to run that creates other essential services for the telehealth application automatically. You can find this script at `telehealth/functions/installer/deploy.js`.
 
 16. Select **Open Application** on the installer page. Authenticate using the Administrator Password you just created. 
 
