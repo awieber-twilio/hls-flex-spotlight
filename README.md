@@ -189,6 +189,10 @@ export TWILIO_AUTH_TOKEN=XXXXXXXXXXXXXXXXXXXXXX
 ```
 twilio serverless:deploy --env=.env
 ```
+If you run into an error about an asset failing to upload, try deploying once more with the command:
+```
+twilio serverless:deploy --override-existing-project
+```
 13. Launch the installer application locally by running 
 ```
 twilio serverless:start
