@@ -26,7 +26,7 @@ Twilio Spotlights are led by a Twilio Solutions Engineer for additional resource
 
 ## Prerequisites 
 You can use your local machine's CLI or a VM for the following steps. This workshop has been tested on MacOS. 
-1. Basic CLI competency is required. No Twilio experience is required, but may be useful. An eagerness to build and learn is a must! 
+1. Basic CLI competency is required. No Twilio experience is required, but would be useful. An eagerness to build and learn is a must! 
 2. Install the [Twilio CLI](https://www.twilio.com/docs/twilio-cli/quickstart).
 <!-- 2. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 3. Launch Docker and wait for it to start.
