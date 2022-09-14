@@ -150,7 +150,7 @@ git clone https://github.com/awieber-twilio/hls-flex-spotlight.git
 
 2. In your command line, move to the directory containing the code for Programmable Video with 
 ```
-cd telehealth
+cd hls-flex-spotlight/telehealth
 ```
 3. Install necessary packages by running
 ```
