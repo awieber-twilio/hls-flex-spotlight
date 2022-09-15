@@ -268,7 +268,7 @@ The next steps requires some specific configurations for your Flex instance. We'
 
 
 9. Create a new file called `.env.localhost` in the `flex-provider` folder. Copy the contents of `flex-provider/.env` into `flex-provider/.env.localhost`
-10. Add 2 lines to the top of your `.env.localhost`:
+10. Add 2 lines to the top of your `.env.localhost`, editing the values to be specific to your account:
 ```
 ACCOUNT_SID=ACXXXXXXXXXXXXXXXXXXXXXXXX
 AUTH_TOKEN=XXXXXXXXXXXXXXXXXXXXXX
