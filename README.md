@@ -47,6 +47,7 @@ twilio plugins:install @twilio-labs/plugin-flex
 ```
 brew install jq 
 ```
+9. Use Chrome for navigating Flex throughout these modules. 
 
 
 ## Module 1: Creating a Twilio Flex Account
