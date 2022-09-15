@@ -630,10 +630,10 @@ Select Save at the bottom of the configuration box.
 
 ![conversation history](/images/conversation-history.png)
 
-Studio Flows can be imported or exported as JSON objects. I've uploaded the Studio Flow I created during Module 8 under `assets/messaging-flow.json`. You can use this object to create a new flow, you'll need to update the Workflow and Channel SIDs in the various "Send to Flex" widgets. Follow [these instructions](https://www.twilio.com/docs/studio/user-guide#importing-and-exporting-flows) to import or export a Studio Flow. 
+Studio Flows can be imported or exported as JSON objects. I've uploaded the Studio Flow I created during Module 6 under `assets/messaging-flow.json`. You can use this object to create a new flow, you'll need to update the Workflow and Channel SIDs in the various "Send to Flex" widgets. Follow [these instructions](https://www.twilio.com/docs/studio/user-guide#importing-and-exporting-flows) to import or export a Studio Flow. 
 
 ## Module 7: Create a voice IVR [OPTIONAL]
-Similar to the SMS experience, you can use Studio Flows to customize the voice experience. Navigate to the "Voice IVR" Studio Flow. You can use the **Voice** widgets to create an IVR that will route patients to Schedulers or to Educators directly. This module is an additional optional challenge. Apply what you learned in Module 8 and experiment with Studio to create the customized experience you desire. Reference the Flow Logs as a tool for debugging your Flow.
+Similar to the SMS experience, you can use Studio Flows to customize the voice experience. Navigate to the "Voice IVR" Studio Flow. You can use the **Voice** widgets to create an IVR that will route patients to Schedulers or to Educators directly. This module is an additional optional challenge. Apply what you learned in Module 6 and experiment with Studio to create the customized experience you desire. Reference the Flow Logs as a tool for debugging your Flow.
 
 If you would like a reference, you can import the Studio Flow I created as a new flow using the JSON object available at `assets/voice-flow.json`. Happy building!
 
