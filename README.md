@@ -10,7 +10,7 @@ Twilio Spotlights are led by a Twilio Solutions Engineer for additional resource
 **Note: All links referenced on this page will overwrite current tab unless you right click and select "Open in new tab"**
 
 ## Contents
-* [Prerequisites](https://github.com/awieber-twilio/hls-spotlight#prerequisites)
+* [Prerequisites](https://github.com/awieber-twilio/hls-flex-spotlight#prerequisites)
 * [Module 1: Creating a Twilio Flex Account](https://github.com/awieber-twilio/hls-flex-spotlight#Module-1-creating-a-twilio-flex-account)
 * [Exploring your Flex Account](https://github.com/awieber-twilio/hls-flex-spotlight#exploring-your-flex-account)
 <!-- * [Module 2: Installing OpenEMR](https://github.com/awieber-twilio/hls-spotlight#Module-2-install-openemr)
