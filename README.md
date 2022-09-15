@@ -309,12 +309,12 @@ Skills refer to abilities that you assign to Workers and apply to your contact c
 
 ![scheduling-skill](/images/scheduling-skill.png)
 
-4. Repeat the process and add a skill called `Educators`.
+4. Repeat the process and add a skill called `Education`.
 5. Navigate to the Teams dashboard by selecting the third icon in the left sidebar. 
 
 ![team-skill](/images/team-skills.png)
 
-6. Assign the Educators and Scheduling skills to your agent by selecting them in the dropdown on the right and clicking "+". You may need to refresh the page. Your profile should look like this:
+6. Assign the Education and Scheduling skills to your agent by selecting them in the dropdown on the right and clicking "+". You may need to refresh the page. Your profile should look like this:
 
 ![profile-skills](/images/profile-skills.png)
 
