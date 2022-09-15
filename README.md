@@ -277,7 +277,7 @@ AUTH_TOKEN=XXXXXXXXXXXXXXXXXXXXXX
 12. Scroll down to `OPENEMR_NGROK_HOSTNAME` and add the URL provided by your Twilio Solutions Engineer.
 
 <!-- 11. In the console, go to TaskRouter -> Workspaces, and copy the SID under "Flex Task Assignment". Scroll down to `FLEX_WORKSPACE_SID=` and paste the Workspace SID.  -->
-13. Update the line for `TELEHEALTH_HOSTNAME=telehealth-xxxx-dev.twil.io`, replacing the example URL with your specific URL from Module 4: Deploy Telehealth Application. If you did not deploy the telehealth application, you can leave the link as is.
+13. Update the line for `TELEHEALTH_HOSTNAME=telehealth-xxxx-dev.twil.io`, replacing the example URL with your specific URL from Module 2: Deploy Telehealth Application. If you did not deploy the telehealth application, you can leave the link as is.
 14. In your terminal, double check that you're in the `flex-provider` directory. Launch the web application that will configure the necessary customizations by running 
 ```
 twilio serverless:start --load-local-env --env=.env.localhost -l debug
