@@ -364,8 +364,15 @@ As a Scheduler, you can respond to incoming calls, texts, and chats. You can use
 ## Module 5: Modifying the Plugin 
 The Flex agent dashboard consists of several React components for a completely customizable agent experience. Owl Health wants to encourage patients to make appointments for preventative care. To help agents outline preventative care options, we need to add a new pane to Flex. 
 1. Navigate to `/flex-provider/plugin/src/components/CustomPanel2/Panes` in your favorite IDE. Here you can see several folders that make up the Agent Dashboard. 
-2. Create a new folder in this directory called "PreventativeCarePane".
-3. Create a file within the new folder called "PreventativeCarePane.tsx". Copy and paste the following code within this file:
+2. Create a new folder in this directory called 
+```
+PreventativeCarePane
+```
+3. Create a file within the new folder called "
+```
+PreventativeCarePane.tsx
+```
+Copy and paste the following code within this file:
 ```
 import React from 'react';
 import { PreventativeCarePaneStyles } from './PreventativeCarePane.Styles';
