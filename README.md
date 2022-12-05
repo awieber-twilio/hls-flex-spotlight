@@ -439,7 +439,11 @@ const PreventativeCarePane = () => {
 export default PreventativeCarePane;
 ```
 
-4. Create another file within this folder called "PreventativeCarePane.Styles.ts". Copy and paste the following code: 
+4. Create another file within this folder called 
+```
+PreventativeCarePane.Styles.ts
+```
+Copy and paste the following code: 
 ```
 import styled from "@emotion/styled";
 
